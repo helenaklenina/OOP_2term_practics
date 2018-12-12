@@ -1,0 +1,45 @@
+package prac5;
+import java.lang.*;
+import java.util.Random;
+
+public class Recursion {
+
+    public static int rec1(int n, int sum ){ //5. Сумма цифр числа. Дано натуральное число N. Вычислите сумму его цифр.
+                                             // При решении этой задачи нельзя использовать строки, списки, массивы (ну и циклы, разумеется)
+        sum = sum + n%10;
+        if( n == 0)
+            return sum;
+        return rec1(n / 10,sum);
+    }
+
+    public static int rec2(){//1. Треугольная последовательность ИЛИ 13. Вывести члены последовательности с нечетными номерами
+
+        int[] arr = {1,25,2,4,5,8,2,5,0};
+        for(int i = 0; i < arr.length; i++) {
+            if( arr[i] == 0)
+                return 1;
+            if ( i % 2 != 0) {
+                System.out.printf("arr[%d] : %d", i, arr[i]);
+                System.out.println("   ");
+            }
+    }
+        return rec2();
+    }
+
+    public static int rec3(int n) {//2. От 1 до n
+                                    // Дано натуральное число n. Выведите все числа от 1 до n.
+        if( n == 0)
+            return 1;
+        for(int i = 0; i <= n; i++) {
+            System.out.print(i + " ");
+        }
+        return 0;
+    }
+
+    public static void main(String[] args) {
+       // System.out.println(rec1(4562,0));
+        //System.out.println(rec2());
+        rec3(5);
+
+    }
+}
