@@ -1,22 +1,30 @@
-package prac6;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.lang.*;
+package prac8;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        ArrayList<Student> students = new ArrayList<Student>();
+    private static Scanner input = new Scanner(System.in);
+    private static Order tableOrder = null;
+    private static Order internetOrder = null;
 
-        for (int i = 0; i < 20; i++){
-            students.add(new Student(i, (int)(Math.random() * 100)));
-            System.out.println(students.get(i).toString());
-        }
-
-        Collections.sort(students, new SortingStudentsByGPA());
-
-        for (int i = 0; i < 20; i++){
-            System.out.println(students.get(i).toString());
+    public static void main(String[] args)
+    {
+        int cmdForOrder;
+        int cmd;
+        System.out.println("Добро пожаловать в лучший ресторан Москвы!");
+        System.out.print("Желаете прийти к нам лично(1) или сделать интеренет заказ(2)?: ");
+        cmdForOrder = input.nextInt();
+        switch(cmdForOrder)
+        {
+            case 1:
+                tableOrder = new Order();
+                tableOrder.makeAnOrder();
+                break;
+            case 2:
+                internetOrder = new Order();
+                internetOrder.makeAnOrder();
+                break;
+            default: System.out.println("Что-то не так.."); break;
         }
     }
-}
 
+}
